@@ -1,56 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Compressed CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compressed CSS -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
+    integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg=="
+    crossorigin="anonymous"> -->
+    
 
-<!-- Compressed JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+  <title>Do You Know Anime</title>
 </head>
+
 <body>
+  <div id="container">
+    <div id="start">Start Quiz</div>
+    <div id="quiz" style="display: none;">
+      <div id="question">
+        <p>Question</p>
+      </div>
+      <div id="qImg"><img src="./assets/images/anime.jpg"></div>
+      <div id="answers">
+        <div id="A" class="answers" onclick="checkAnswer('A')">A</div>
+        <div id="B" class="answers" onclick="checkAnswer('B')">B</div>
+        <div id="C" class="answers" onclick="checkAnswer('A')">C</div>
+        <div id="D" class="answers" onclick="checkAnswer('D')">D</div>
+      </div>
+      <div id="timer">
+        <div id="counter"></div>
+        <div id="btimeGauge"></div>
+        <div id="timeGuage"></div>
+      </div>
+      <div id="progress"></div>
+    </div>
 
-  <div id="Start"></div>
-  <div id="quiz" style="display: none;"></div>
-  <div id="qImage"><img src=""></div>
-  <div id="question"><p>Question</p></div>
-  <div id="timer">
-    <div id="counter"></div>
-  <div id="btimeGauge"></div>
-  <div id="timeGauge"></div>
+    <div id="scoreBoard" style="display: none;">
+      <img src="">
+      <p></p>
+    </div>
   </div>
-
-  <div>
-    <div id="A" class="answers" onclick="checkAnswer('A')">A</div>
-    <div id="B" class="answers" onclick="checkAnswer('B')">B</div>
-    <div id="C" class="answers" onclick="checkAnswer('A')">C</div>
-    <div id="D" class="answers" onclick="checkAnswer('D')">D</div>
-  </div>
-  
-  <div id="scoreBoard" style="display: none;">
-  <img src=""><p></p>
-</div>
-    <!-- <div class="card-user-profile">
-        <img class="card-user-profile-img" src="https://images.pexels.com/photos/5439/earth-space.jpg?h=350&auto=compress&cs=tinysrgb" alt="picture of space" />
-        <div class="card-user-profile-content card-section">
-          <div class="card-user-profile-avatar">
-            <img src="https://pbs.twimg.com/profile_images/422887689612820482/sZtHMJu5.png" alt="picture of yeti" />
-          </div>
-          <p class="card-user-profile-name">Abominable Snowman</p>
-          <p class="card-user-profile-status">Yeti Web Designer</p>
-          <p class="card-user-profile-info">The Yeti, once better known as the Abominable Snowman, is a mysterious bipedal creature said to live in the mountains of Asia. It sometimes leaves tracks in snow, but is also said to dwell below the Himalayan snow line.</p>
-        </div>
-      
-        <div class="card-user-profile-actions">
-          <a href="#" class="card-user-profile-button button hollow">Follow</a>
-          <a href="#" class="card-user-profile-button button hollow secondary">More Info</a>
-        </div>
-      </div> -->
-      
-      
-      <script src="./assets/javascript/source.js"></script>
+  <script src="./assets/javascript/source.js"></script>
 </body>
+
 </html>
