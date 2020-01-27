@@ -4,7 +4,7 @@ const quiz = document.getElementById("quiz");
 const qImg = document.getElementById("qImg");
 const question = document.getElementById("question");
 const counter = document.getElementById("counter");
-const timeGuage = document.getElementById("timeGuage");
+const timeGuage = document.getElementById("timeGauge");
 
 
 const answerA = document.getElementById("A");
@@ -24,95 +24,95 @@ let questions = [
         question: "What anime is this character from?",
         imgSrc: "assets/images/naruto.jpg",
         answerA: "Naruto",
-        answerB: "",
-        answerC: "",
-        answerD: "",
+        answerB: "d",
+        answerC: "d",
+        answerD: "d",
         correct: "A"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/asta.jpg",
-        answerA: "",
+        answerA: "d",
         answerB: "Black Clover",
-        answerC: "",
-        answerD: "",
+        answerC: "d",
+        answerD: "d",
         correct: "B"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/light.jpg",
-        answerA: "",
-        answerB: "",
+        answerA: "d",
+        answerB: "d",
         answerC: "Death Note",
-        answerD: "",
-        correct: "C"
-    },
-    {
-        question: "What anime is this character from?",
-        imgSrc: "assets/images/yusuke.jpg",
-        answerA: "Yu Yu Hakusho",
-        answerB: "",
-        answerC: "",
-        answerD: "",
+        answerD: "d",
         correct: "A"
     },
     {
         question: "What anime is this character from?",
-        imgSrc: "assets/images/Spike.jpg",
-        answerA: "",
-        answerB: "",
-        answerC: "Cowboy Bebop",
-        answerD: "",
-        correct: "C"
+        imgSrc: "assets/images/yusuke.jpg",
+        answerA: "d",
+        answerB: "d",
+        answerC: "d",
+        answerD: "Yu Yu Hakusho",
+        correct: "D"
     },
     {
         question: "What anime is this character from?",
-        imgSrc: "assets/images/dr.stone.jpg",
-        answerA: "",
+        imgSrc: "assets/images/Spike.jpg",
+        answerA: "Cowboy Bebop",
+        answerB: "d",
+        answerC: "d",
+        answerD: "d",
+        correct: "A"
+    },
+    {
+        question: "What anime is this character from?",
+        imgSrc: "assets/images/drstone.jpg",
+        answerA: "d",
         answerB: "Dr. Stone",
-        answerC: "",
-        answerD: "",
+        answerC: "d",
+        answerD: "d",
         correct: "B"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/champloo.jpg",
-        answerA: "",
+        answerA: "d",
         answerB: "Samurai Champloo",
-        answerC: "",
-        answerD: "",
+        answerC: "d",
+        answerD: "d",
         correct: "B"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/ichigo.jpg",
-        answerA: "",
-        answerB: "",
-        answerC: "",
+        answerA: "d",
+        answerB: "d",
+        answerC: "d",
         answerD: "Bleach",
         correct: "D"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/saitama.jpg",
-        answerA: "",
-        answerB: "",
-        answerC: "One Punch Man",
-        answerD: "",
-        correct: "C"
+        answerA: "d",
+        answerB: "One Punch Man",
+        answerC: "d",
+        answerD: "d",
+        correct: "B"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/luffy.jpg",
         answerA: "One Piece",
-        answerB: "",
-        answerC: "",
-        answerD: "",
+        answerB: "d",
+        answerC: "d",
+        answerD: "d",
         correct: "A"
     },
 ];
 
-const lastQuestionIndex = questions.length-1;
+const lastQuestionIndex = questions.length - 1;
 let runningQuestionIndex = 0;
 
 function renderQuestion(){
@@ -127,7 +127,7 @@ function renderQuestion(){
 
 //Progression
 function progressRender(){
-    for(var qIndex =0; qIndex <=lastQuestionIndex; qIndex++){
+    for(let qIndex = 0; qIndex <= lastQuestionIndex; qIndex++){
         progress.innerHTML +="<div class='prog' id=" + qIndex +"></div>";
     }
 }
@@ -142,17 +142,17 @@ function wrongAnswer(){
 
 //Timing
 const questionTime = 10;
-const guageWidth = 150;
+const gaugeWidth = 150;
 let count = 0;
 let TIMER;
 let score = 0;
-const guageProgressUnit = guageWidth/questionTime;
+const gaugeProgressUnit = gaugeWidth/questionTime;
 
 function counterRender() {
     if (
         count <= questionTime) {
         counter.innerHTML = count;
-        timeGuage.style.width = guageProgressUnit * count + "px";
+        timeGauge.style.width = count * gaugeProgressUnit + "px";
         count++
     } else {
         count = 0;
@@ -169,14 +169,14 @@ function counterRender() {
 }
 
 function checkAnswer(answer) {
-    if (questions[runningQuestionIndex].correct === answer) {
+    if (answer == questions[runningQuestionIndex].correct) {
         score++;
         rightAnswer();
     } else {
         wrongAnswer();
     }
+    count = 0;
     if (runningQuestionIndex < lastQuestionIndex) {
-        count = 0;
         runningQuestionIndex++;
         renderQuestion();
     } else {
@@ -200,11 +200,12 @@ function startQuiz(){
 
 function scoreRender() {
     scoreContainer.style.display = "block";
-    var scorePercent = Math.round(100 * score / questions.length);
-    var img = (scorePercent >= 80) ? "../images/happy.jpg" :
-        (scorePercent >= 60) ? "../images/straight face.jpg" :
-            (scorePercent >= 40) ? "../images/confused.jpg" :
-                (scorePercent >= 20) ? "../images/fail.jpg" : "";
+    const scorePercent = Math.round(100 * score / questions.length);
+    let img = (scorePercent >= 80) ? "assets/images/happy.jpg" :
+        (scorePercent >= 60) ? "assets/images/straightface.jpg" :
+            (scorePercent >= 40) ? "assets/images/confused.jpg" :
+                (scorePercent >= 20) ? "assets/images/fail.jpg" : "";
 
-    scoreContainer.innerHTML = "<img src=" + img + "><p>" + scorePercent + "%</p>";
+    scoreContainer.innerHTML = "<img src=" + img + ">" + "<p>" + scorePercent + "%</p>";
+    
 }
