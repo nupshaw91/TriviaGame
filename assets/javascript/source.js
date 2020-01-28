@@ -14,6 +14,8 @@ const answerD = document.getElementById("D");
 
 const progress= document.getElementById("progress");
 
+const result= document.getElementById("result");
+const restart= document.getElementById("restart");
 const scoreContainer = document.getElementById("scoreContainer");
 
 
@@ -171,21 +173,24 @@ function counterRender() {
 function checkAnswer(answer) {
     if (answer == questions[runningQuestionIndex].correct) {
         score++;
+        resultRender(answer);
         rightAnswer();
     } else {
+       resultRender();
         wrongAnswer();
     }
-    count = 0;
-    if (runningQuestionIndex < lastQuestionIndex) {
-        runningQuestionIndex++;
-        renderQuestion();
-    } else {
-        clearInterval(TIMER);
-        scoreRender();
-    }
+    setTimeout(function(){count = 0;
+        if (runningQuestionIndex < lastQuestionIndex) {
+            runningQuestionIndex++;
+            renderQuestion();
+        } else {
+            clearInterval(TIMER);
+            scoreRender();
+        }},1000)
+    
 }
 start.addEventListener("click", startQuiz);
-
+restart.addEventListener("click",restartQuiz)
 
 
 function startQuiz(){
@@ -204,8 +209,35 @@ function scoreRender() {
     let img = (scorePercent >= 80) ? "assets/images/happy.jpg" :
         (scorePercent >= 60) ? "assets/images/straightface.jpg" :
             (scorePercent >= 40) ? "assets/images/confused.jpg" :
-                (scorePercent >= 20) ? "assets/images/fail.jpg" : "";
+                (scorePercent >= 20) ? "assets/images/fail.jpg" : "assets/images/gon.jpg";
 
     scoreContainer.innerHTML = "<img src=" + img + ">" + "<p>" + scorePercent + "%</p>";
-    
+    setTimeout(restartRender,2000)
+
 }
+
+function resultRender(answer){
+    result.style.display ="block";
+    let info = (questions[runningQuestionIndex].correct === answer) ? "Correct!!!" : "Wrong!!!";
+    let img = (questions[runningQuestionIndex].correct === answer) ? "assets/images/Lsmile.jpg" : "assets/images/Lwhy.jpg";
+    result.innerHTML = "<img src=" + img + ">" + "<p>" + info + "</p>"
+    setTimeout(resultUnrender,1000)
+}
+
+function resultUnrender() {
+    result.style.display = "none";
+}
+function restartRender() {
+    restart.style.display = "block";
+}
+function restartQuiz() {
+    restart.style.display = "none";
+    scoreContainer.style.display = "none";
+    start.style.display = "block";
+    quiz.style.display = "none";
+    score = 0;
+    runningQuestionIndex = 0;
+    qIndex = 0;
+    $(".prog").remove();
+}
+
