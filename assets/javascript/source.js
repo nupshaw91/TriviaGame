@@ -26,35 +26,35 @@ let questions = [
         question: "What anime is this character from?",
         imgSrc: "assets/images/naruto.jpg",
         answerA: "Naruto",
-        answerB: "d",
-        answerC: "d",
-        answerD: "d",
+        answerB: "Dragon Ball Z",
+        answerC: "Getbackers",
+        answerD: "Hellsing",
         correct: "A"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/asta.jpg",
-        answerA: "d",
+        answerA: "Black Butler",
         answerB: "Black Clover",
-        answerC: "d",
-        answerD: "d",
+        answerC: "Vampire Knight",
+        answerD: "Sword Art online",
         correct: "B"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/light.jpg",
-        answerA: "d",
-        answerB: "d",
+        answerA: "Code Geass",
+        answerB: "Psycho-Pass",
         answerC: "Death Note",
-        answerD: "d",
+        answerD: "Ghost in the shell",
         correct: "A"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/yusuke.jpg",
-        answerA: "d",
-        answerB: "d",
-        answerC: "d",
+        answerA: "Beserk",
+        answerB: "The Big O",
+        answerC: "Cybuster",
         answerD: "Yu Yu Hakusho",
         correct: "D"
     },
@@ -62,54 +62,54 @@ let questions = [
         question: "What anime is this character from?",
         imgSrc: "assets/images/Spike.jpg",
         answerA: "Cowboy Bebop",
-        answerB: "d",
-        answerC: "d",
-        answerD: "d",
+        answerB: "Trigun",
+        answerC: "Rurouni Kenshin",
+        answerD: "Inuyasha",
         correct: "A"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/drstone.jpg",
-        answerA: "d",
+        answerA: "Fairy Tail",
         answerB: "Dr. Stone",
-        answerC: "d",
-        answerD: "d",
+        answerC: "Kill La Kill",
+        answerD: "Case Closed",
         correct: "B"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/champloo.jpg",
-        answerA: "d",
+        answerA: "Afro Samurai",
         answerB: "Samurai Champloo",
-        answerC: "d",
-        answerD: "d",
+        answerC: "Gintama",
+        answerD: "Not an anime",
         correct: "B"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/ichigo.jpg",
-        answerA: "d",
-        answerB: "d",
-        answerC: "d",
+        answerA: "Hunter x Hunter",
+        answerB: "D.Grayman",
+        answerC: "S-CRY-ed",
         answerD: "Bleach",
         correct: "D"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/saitama.jpg",
-        answerA: "d",
+        answerA: "FLCL",
         answerB: "One Punch Man",
-        answerC: "d",
-        answerD: "d",
+        answerC: "Black Lagoon",
+        answerD: "Fate stay Night",
         correct: "B"
     },
     {
         question: "What anime is this character from?",
         imgSrc: "assets/images/luffy.jpg",
         answerA: "One Piece",
-        answerB: "d",
-        answerC: "d",
-        answerD: "d",
+        answerB: "Full Metal Alchemist",
+        answerC: "Food Wars",
+        answerD: ".hack",
         correct: "A"
     },
 ];
@@ -158,20 +158,24 @@ function counterRender() {
         count++
     } else {
         count = 0;
-        rightAnswer();
-        if (runningQuestionIndex < lastQuestionIndex) {
-            runningQuestionIndex++;
-            renderQuestion();
-        } else {
-            clearInterval(TIMER);
-            scoreRender();
-        }
+        wrongAnswer();
+        timeUpRender();
+        setTimeout(function(){
+            if (runningQuestionIndex < lastQuestionIndex) {
+                runningQuestionIndex++;
+                renderQuestion();
+            } else {
+                clearInterval(TIMER);
+                scoreRender();
+            }
+        },1000)
+       
     }
 
 }
 
 function checkAnswer(answer) {
-    if (answer == questions[runningQuestionIndex].correct) {
+    if (answer === questions[runningQuestionIndex].correct) {
         score++;
         resultRender(answer);
         rightAnswer();
@@ -179,7 +183,8 @@ function checkAnswer(answer) {
        resultRender();
         wrongAnswer();
     }
-    setTimeout(function(){count = 0;
+    setTimeout(function(){
+        count = 0;
         if (runningQuestionIndex < lastQuestionIndex) {
             runningQuestionIndex++;
             renderQuestion();
@@ -240,4 +245,10 @@ function restartQuiz() {
     qIndex = 0;
     $(".prog").remove();
 }
-
+function timeUpRender(){
+    timeUp.style.display ="block";
+    setTimeout(timeUpUnrender,1000)
+}
+function timeUpUnrender() {
+    timeUp.style.display = "none";
+}
