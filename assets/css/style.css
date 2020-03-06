@@ -17,6 +17,10 @@ body{
   top: 100px;
 }
 
+.navbar-brand{
+  font-family: 'Courgette', cursive;
+}
+
 /* Styling for quiz renderings */
 #start{
   font-size: 1.4em;
