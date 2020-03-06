@@ -145,6 +145,7 @@ function wrongAnswer(){
 }
 
 //Timing
+//**---Add a better styling to go with the theme of the game */
 const questionTime = 10;
 const gaugeWidth = 150;
 let count = 0;
@@ -152,6 +153,7 @@ let TIMER;
 let score = 0;
 const gaugeProgressUnit = gaugeWidth/questionTime;
 
+//Trivia Game  rendering features
 function counterRender() {
     if (
         count <= questionTime) {
