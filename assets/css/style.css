@@ -1,3 +1,5 @@
+
+/* The styling for the container and body */
 body{
   font-size: 20px;
   font-family: monospace;
@@ -14,6 +16,8 @@ body{
   position: relative;
   top: 100px;
 }
+
+/* Styling for quiz renderings */
 #start{
   font-size: 1.4em;
   font-weight: bolder;
@@ -67,6 +71,8 @@ body{
   font-weight: bold;
   text-align: center;
 }
+
+/* time-based styling */
 #timeUp img{
   position: absolute;
   width : 200px;
@@ -96,6 +102,7 @@ body{
   text-align: center;
 }
 
+/* Question styling */
 #qImg img{
   width : 200px;
   height : 200px;
@@ -115,6 +122,7 @@ body{
   font-size: 1.25em;
 }
 
+/* Answer styling */
 #answers{
   width : 480px;
   position: absolute;
@@ -136,6 +144,7 @@ body{
   font-weight: bold;
 }
 
+/* Progression styling */
 #timer{
   position: absolute;
   height : 100px;
@@ -177,6 +186,8 @@ body{
   margin-left : 5px;
   margin-right : 5px;
 }
+
+/* score container styling */
 #scoreContainer{
   margin : 20px auto;
   background-color: white;
