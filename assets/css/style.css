@@ -16,7 +16,9 @@ body{
   position: relative;
   top: 100px;
 }
-
+nav{
+  background-color: transparent;
+}
 .navbar-brand{
   font-family: 'Courgette', cursive;
 }
