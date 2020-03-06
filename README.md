@@ -2,6 +2,7 @@
 view:
 
 ### Purpose
+The purpose of the is app is to test you knowledge of anime charcters in different shows.
 
 ### Instructions
 - click start quiz
