@@ -1,5 +1,6 @@
 # TriviaGame
 view:
+<img src="/assets/images/view.png">
 
 ### Purpose
 The purpose of the is app is to test you knowledge of anime charcters in different shows.
