@@ -21,6 +21,7 @@ const scoreContainer = document.getElementById("scoreContainer");
 
 
 //questions array and rendering
+//**Add more questions and pick a diffculty setting */
 let questions = [
     {
         question: "What anime is this character from?",
@@ -128,6 +129,7 @@ function renderQuestion(){
 }
 
 //Progression
+//**Add a more smooth transition */
 function progressRender(){
     for(let qIndex = 0; qIndex <= lastQuestionIndex; qIndex++){
         progress.innerHTML +="<div class='prog' id=" + qIndex +"></div>";
